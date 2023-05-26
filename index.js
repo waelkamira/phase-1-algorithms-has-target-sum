@@ -1,18 +1,20 @@
-function hasTargetSum(array, target) {
-  // Write your algorithm here
+function hasTargetSum(arr, target) {
+  const complements = new Set();
+
+  for (let num of arr) {
+    const complement = target - num;
+    if (complements.has(complement)) {
+      return true;
+    }
+    complements.add(num);
+  }
+
+  return false;
 }
 
-/* 
-  Write the Big O time complexity of your function here
-*/
+module.exports = hasTargetSum;
 
-/* 
-  Add your pseudocode here
-*/
 
-/*
-  Add written explanation of your solution here
-*/
 
 // You can run `node index.js` to view these console logs
 if (require.main === module) {
